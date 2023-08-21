@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs') %>
+
+<ul class="list-group">
+  <% if(locals.todayTasks){ %> 
+  <% todayTasks.forEach((todayTask)=>{ %>
+  <li class="list-group-item">
+    <input class="form-check-input me-1 strikethrough" type="checkbox" />
+    <span><%= todayTask %></span>
+  </li>
+  <% }) } %>
+  <form action="/today" method="POST">
+    <li class="list-group-item add_task">
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="Add task"
+        name="newTask"
+        required
+        oninvalid="this.setCustomValidity('Please add a valid task')"
+        oninput="setCustomValidity('')"
+      />
+
+      <button class="btn">
+        <img
+          src="images/add.png"
+          alt="Today"
+          width="24"
+          height="24"
+          class="d-inline-block align-text-top"
+        />
+      </button>
+    </li>
+  </form>
+</ul>
+
+<%- include('partials/footer.ejs') %>

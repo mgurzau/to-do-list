@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>ToDo List</title>
+  </head>
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <main>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <form action="/today">
+            <button
+              class="btn <% if(locals.state===0) { %> active <% } %>btn-outline-success me-2"
+              type="submit"
+            >
+              <img
+                src="images/today.png"
+                alt="Today"
+                width="24"
+                height="24"
+                class="d-inline-block align-text-top"
+              />
+              Today
+            </button>
+          </form>
+
+          <form action="/work">
+            <button
+              class="btn <% if(locals.state===1) { %> active <% } %> btn-outline-success me-2"
+              type="submit"
+            >
+              <img
+                src="images/work.png"
+                alt="Work"
+                width="24"
+                height="24"
+                class="d-inline-block align-text-top"
+              />
+              Work
+            </button>
+          </form>
+        </div>
+        <button class="btn date btn-outline-success me-2" disabled>
+          <%= day %> , <%= date%> <%= month%> <%= year%>
+        </button>
+      </nav>
+      
+    </main>
+  </body>
+</html>
